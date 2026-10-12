@@ -8,7 +8,6 @@ endforeach
 
 bimg_dep = subproject('mbimg').get_variable('bimg_dep')
 bx_dep = subproject('mbx').get_variable('bx_dep')
-imgui_dep = subproject('imgui').get_variable('imgui_dep')
 
 bgfx_inc_dirs = [
   'include',
