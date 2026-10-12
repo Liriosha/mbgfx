@@ -43,32 +43,9 @@ bgfx_lib = static_library('bgfx', sources,
   cpp_args : bgfx_args,
 )
 
-
-meshoptimizer_lib = static_library('meshoptimizer', [
-    '3rdparty/meshoptimizer/src/allocator.cpp',
-    '3rdparty/meshoptimizer/src/clusterizer.cpp',
-    '3rdparty/meshoptimizer/src/indexanalyzer.cpp',
-    '3rdparty/meshoptimizer/src/indexcodec.cpp',
-    '3rdparty/meshoptimizer/src/indexgenerator.cpp',
-    '3rdparty/meshoptimizer/src/overdrawoptimizer.cpp',
-    '3rdparty/meshoptimizer/src/partition.cpp',
-    '3rdparty/meshoptimizer/src/quantization.cpp',
-    '3rdparty/meshoptimizer/src/rasterizer.cpp',
-    '3rdparty/meshoptimizer/src/simplifier.cpp',
-    '3rdparty/meshoptimizer/src/spatialorder.cpp',
-    '3rdparty/meshoptimizer/src/stripifier.cpp',
-    '3rdparty/meshoptimizer/src/vcacheoptimizer.cpp',
-    '3rdparty/meshoptimizer/src/vertexcodec.cpp',
-    '3rdparty/meshoptimizer/src/vertexfilter.cpp',
-    '3rdparty/meshoptimizer/src/vfetchoptimizer.cpp',
-  ],
-)
-
 bgfx_dep = declare_dependency(
   link_with: [
     bgfx_lib,
-    meshoptimizer_lib
   ],
-  dependencies: imgui_dep,
   include_directories: bgfx_inc
 )

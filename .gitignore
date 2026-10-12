@@ -10,8 +10,10 @@
 !include/**
 !subprojects
 !subprojects/mbimg.wrap
-!subprojects/imgui.wrap
+!subprojects/directx-headers.wrap
 !sources.txt
 !meson.options
 !subprojects/packagefiles
 !subprojects/packagefiles/**
+!3rdparty
+!3rdparty/**
