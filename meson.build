@@ -1,4 +1,9 @@
-project('bgfx',['c','cpp'], default_options : ['cpp_std=c++20'])
+project('bgfx',['c','cpp'], default_options : ['cpp_std=c++20','unity=on'])
+
+if sys.OS() is 'Linux':
+  add_project_arguments('-fPIC', language: 'cpp')
+endif
+
 
 fs = import('fs')
 sources = []
