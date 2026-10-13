@@ -1,6 +1,6 @@
 project('bgfx',['c','cpp'], default_options : ['cpp_std=c++20','unity=on'])
 
-if sys.OS() is 'Linux':
+if  host_machine.system() == 'Linux':
   add_project_arguments('-fPIC', language: 'cpp')
 endif
 
