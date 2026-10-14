@@ -35,6 +35,15 @@ endif
 
 if host_machine.system() == 'darwin'
   bgfx_args += '-xobjective-c++'
+  bgfx_args += '-framework Cocoa'
+  bgfx_args += '-framework IOKit'
+  bgfx_args += '-framework OpenGL'
+  bgfx_args += '-framework QuartzCore'
+  bgfx_args += '-weak_framework Metal'
+  bgfx_args += '-weak_framework MetalKit'
+  bgfx_args += '-weak_framework VideoToolbox'
+  bgfx_args += '-weak_framework CoreMedia'
+  bgfx_args += '-weak_framework CoreVideo'
 endif
 
 bgfx_lib = static_library('bgfx', sources,
