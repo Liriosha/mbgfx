@@ -13,6 +13,10 @@ endforeach
 
 bimg_dep = subproject('mbimg').get_variable('bimg_dep')
 bx_dep = subproject('mbx').get_variable('bx_dep')
+bgfx_deps = [
+    bx_dep,
+    bimg_dep,
+]
 
 bgfx_inc_dirs = [
   'include',
@@ -25,6 +29,22 @@ bgfx_inc_dirs = [
 if host_machine.system() != 'windows'
   bgfx_inc_dirs += '3rdparty/directx-headers/include/wsl/stubs'
 endif
+
+if host_machine.system() == 'darwin'
+bgfx_deps += [
+     dependency('OpenGL', method: 'extraframework'),
+     dependency('Cocoa', method: 'extraframework'),
+     dependency('QuartzCore', method: 'extraframework'),
+     dependency('IOKit', method: 'extraframework'),
+     dependency('Metal', method: 'extraframework'),
+     dependency('CoreVideo', method: 'extraframework'),
+     dependency('CoreMedia', method: 'extraframework'),
+     dependency('VideoToolbox', method: 'extraframework')
+]
+else
+  bgfx_deps += dependency('gl')
+endif
+
 bgfx_inc = include_directories(bgfx_inc_dirs)
 
 bgfx_args = []
@@ -39,17 +59,11 @@ endif
 
 bgfx_lib = static_library('bgfx', sources,
   include_directories: bgfx_inc,
-  dependencies: [
-    bx_dep,
-    bimg_dep,
-    dependency('gl')
-  ],
+  dependencies: bgfx_deps,
   cpp_args : bgfx_args,
 )
 
 bgfx_dep = declare_dependency(
-  link_with: [
-    bgfx_lib,
-  ],
+  link_with: bgfx_lib,
   include_directories: bgfx_inc
 )
