@@ -25,3 +25,7 @@
 !subprojects/glslang.wrap
 !subprojects/h264
 !subprojects/h264/**
+!subprojects/d3d4linux
+!subprojects/d3d4linux/**
+!subprojects/directx-headers
+!subprojects/directx-headers/**

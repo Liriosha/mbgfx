@@ -11,3 +11,24 @@ type: 'boolean',
 value: true,
 description: 'Builds the bgfx toolkit'
 )
+
+option(
+'shaderc-glslang',
+type: 'boolean',
+value: true,
+description: 'Compiles with glslang'
+)
+
+option(
+'shaderc-tint',
+type: 'boolean',
+value: true,
+description: 'Compiles with tint'
+)
+
+option(
+'shaderc-d3d',
+type: 'boolean',
+value: false,
+description: 'Compiles with d3d'
+)

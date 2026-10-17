@@ -251,7 +251,7 @@ spirvtools_lib = static_library(
 )
 
 spirvtools_dep = declare_dependency(
-    include_directories: ['include'],
+    include_directories: ['include', 'include/generated'],
     link_with: spirvtools_lib
 )
 

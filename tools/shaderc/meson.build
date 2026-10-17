@@ -1,8 +1,6 @@
 inc_dirs = [
   '../../include',
   '../../3rdparty',
-  '../../3rdparty/directx-headers/include',
-  '../../3rdparty/directx-headers/include/directx',
   '../../3rdparty/khronos',
 ]
 
@@ -13,15 +11,26 @@ dep_names = [
   'bx',
   'bimg',
   'meshoptimizer',
-  'glslang'
+  'glslang',
+  'directx-headers'
 ]
 deps = []
 foreach n : dep_names
     deps += dependency(n)
 endforeach
+args = []
+if get_option('shaderc-glslang')
+  args +='-DSHADERC_HAS_GLSLANG' 
+endif
+if get_option('shaderc-tint')
+  args += '-DSHADERC_HAS_TINT'
+endif
+if get_option('shaderc-d3d')
+  args += '-DSHADERC_CONFIG_HAS_D3DCOMPILER'
+endif
 
 if host_machine.system() != 'windows'
-  inc_dirs += '../../3rdparty/directx-headers/include/wsl/stubs'
+  deps += dependency('d3d4linux')
 endif
 
 shaderc_exe = executable(
@@ -41,6 +50,7 @@ shaderc_exe = executable(
 ],
 dependencies: deps,
 include_directories: inc_dirs,
+cpp_args: args
 )
 
 meson.override_find_program('shaderc',shaderc_exe)

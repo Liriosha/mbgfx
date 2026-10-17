@@ -1,4 +1,4 @@
-project('bgfx',['c','cpp'], default_options : ['cpp_std=c++20','unity=on'])
+project('bgfx',['c','cpp'], default_options : ['cpp_std=c++20','unity=on','optimization=3'])
 
 if host_machine.system() == 'Linux'
   add_project_arguments('-fPIC', language: 'cpp')
@@ -15,21 +15,15 @@ endforeach
 bgfx_deps = [
     dependency('bimg'),
     dependency('bx'),
-    dependency('h264')
+    dependency('h264'),
+    dependency('directx-headers')
 ]
 
 bgfx_inc_dirs = [
   'include',
   '3rdparty',
-  '3rdparty/directx-headers/include',
-  '3rdparty/directx-headers/include/directx',
-  '3rdparty/khronos',
+  '3rdparty/khronos'
 ]
-
-if host_machine.system() != 'windows'
-  bgfx_inc_dirs += '3rdparty/directx-headers/include/wsl/stubs'
-endif
-
 if host_machine.system() == 'darwin'
 bgfx_deps += [
      dependency('OpenGL', method: 'extraframework'),
