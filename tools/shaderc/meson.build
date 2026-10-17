@@ -20,10 +20,10 @@ foreach n : dep_names
 endforeach
 args = []
 if get_option('shaderc-glslang')
-  args +='-DSHADERC_HAS_GLSLANG' 
+  args +='-DSHADERC_CONFIG_HAS_GLSLANG' 
 endif
 if get_option('shaderc-tint')
-  args += '-DSHADERC_HAS_TINT'
+  args += '-DSHADERC_CONFIG__HAS_TINT'
 endif
 if get_option('shaderc-d3d')
   args += '-DSHADERC_CONFIG_HAS_D3DCOMPILER'
