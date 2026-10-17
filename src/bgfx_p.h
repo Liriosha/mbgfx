@@ -597,10 +597,7 @@ namespace bgfx
 
 		bool isZero() const
 		{
-			static_assert(8 == sizeof(Rect), "");
-
-			uint64_t ui64 = *( (uint64_t*)this);
-			return UINT64_C(0) == ui64;
+			return 0 == (m_x|m_y|m_width|m_height);
 		}
 
 		bool isZeroArea() const
@@ -694,6 +691,8 @@ namespace bgfx
 	const char* getAttribNameShort(Attrib::Enum _attr);
 	void getTextureSizeFromRatio(BackbufferRatio::Enum _ratio, uint16_t& _width, uint16_t& _height);
 	TextureFormat::Enum getViableTextureFormat(const bimg::ImageContainer& _imageContainer);
+	void imageDecodeToBgra8(void* _dst, const void* _src, uint32_t _width, uint32_t _height, uint32_t _depth, uint32_t _dstPitch, uint32_t _dstSlicePitch, bimg::TextureFormat::Enum _srcFormat);
+	void imageDecodeToRgba8(void* _dst, const void* _src, uint32_t _width, uint32_t _height, uint32_t _depth, uint32_t _dstPitch, uint32_t _dstSlicePitch, bimg::TextureFormat::Enum _srcFormat);
 	const char* getName(TextureFormat::Enum _fmt);
 	const char* getName(UniformHandle _handle);
 	const char* getName(ShaderHandle _handle);
@@ -1086,6 +1085,25 @@ namespace bgfx
 	};
 
 	extern BlitFallback* g_blitFallback;
+
+	///
+	struct DepthResolve
+	{
+		void init();
+		void shutdown();
+
+		enum Enum
+		{
+			Texture2D,
+			Texture2DArray,
+
+			Count
+		};
+
+		ProgramHandle m_program[Count] = { BGFX_INVALID_HANDLE, BGFX_INVALID_HANDLE };
+	};
+
+	extern DepthResolve* g_depthResolve;
 
 	///
 	struct VideoDecode
@@ -8964,6 +8982,7 @@ namespace bgfx
 		ClearQuad m_clearQuad;
 		MipGen m_mipGen;
 		BlitFallback m_blitFallback;
+		DepthResolve m_depthResolve;
 		VideoDecode m_videoDecode;
 
 		RendererContextI* m_renderCtx;
