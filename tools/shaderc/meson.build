@@ -4,8 +4,21 @@ inc_dirs = [
   '../../3rdparty/directx-headers/include',
   '../../3rdparty/directx-headers/include/directx',
   '../../3rdparty/khronos',
-  '../../3rdparty/glslang'
 ]
+
+dep_names = [
+  'spirv-cross',
+  'spirv-headers',
+  'spirv-tools',
+  'bx',
+  'bimg',
+  'meshoptimizer',
+  'glslang'
+]
+deps = []
+foreach n : dep_names
+    deps += dependency(n)
+endforeach
 
 if host_machine.system() != 'windows'
   inc_dirs += '../../3rdparty/directx-headers/include/wsl/stubs'
@@ -26,7 +39,7 @@ shaderc_exe = executable(
 '../../src/shader.cpp',
 '../../src/vertexlayout.cpp'
 ],
-dependencies: [dependency('meshoptimizer'),dependency('bx'),dependency('bimg')],
+dependencies: deps,
 include_directories: inc_dirs,
 )
 

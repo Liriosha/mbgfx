@@ -11,11 +11,11 @@ foreach s : fs.read('sources.txt').strip().split('\n')
     sources += files('src/' + s + '.cpp')
 endforeach
 
-bimg_dep = subproject('mbimg').get_variable('bimg_dep')
-bx_dep = subproject('mbx').get_variable('bx_dep')
+
 bgfx_deps = [
-    bx_dep,
-    bimg_dep,
+    dependency('bx'),
+    dependency('bimg'),
+    dependency('h264')
 ]
 
 bgfx_inc_dirs = [

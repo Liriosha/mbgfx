@@ -2,3 +2,5 @@
 url = https://github.com/liriosha/mbimg.git
 revision = HEAD
 depth = 1
+[provide]
+bimg = bimg_dep

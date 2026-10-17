@@ -20,3 +20,8 @@
 !subprojects/meshoptimizer.wrap
 !tools
 !tools/**
+!subprojects/spirv-*
+!subprojects/spirv-*/**
+!subprojects/glslang.wrap
+!subprojects/h264
+!subprojects/h264/**
