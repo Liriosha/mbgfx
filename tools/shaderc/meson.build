@@ -27,10 +27,11 @@ if get_option('shaderc-tint')
 endif
 if get_option('shaderc-d3d')
   args += '-DSHADERC_CONFIG_HAS_D3DCOMPILER'
-endif
 
 if host_machine.system() != 'windows'
   deps += dependency('d3d4linux')
+endif
+
 endif
 
 shaderc_exe = executable(
