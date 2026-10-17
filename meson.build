@@ -67,3 +67,9 @@ bgfx_dep = declare_dependency(
   link_with: bgfx_lib,
   include_directories: bgfx_inc
 )
+
+meson.override_dependency('bgfx',bgfx_dep)
+
+if get_option('build_tools')
+subdir('tools')
+endif

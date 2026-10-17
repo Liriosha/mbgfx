@@ -68,7 +68,7 @@ namespace bgfx
 #include <bx/hash.h>
 #include <bx/file.h>
 #include "../../src/vertexlayout.h"
-
+#include "../../src/bgfx_p.h"
 #include <string.h>
 #include <algorithm>
 #include <string>
@@ -80,24 +80,6 @@ namespace bgfx
 	extern bool g_verbose;
 
 	bx::StringView nextWord(bx::StringView& _parse);
-
-	constexpr uint16_t kAccessRead  = 0x8000;
-	constexpr uint16_t kAccessWrite = 0x4000;
-	constexpr uint16_t kAccessMask  = 0
-		| kAccessRead
-		| kAccessWrite
-		;
-
-	constexpr uint8_t kUniformFragmentBit  = 0x10;
-	constexpr uint8_t kUniformSamplerBit   = 0x20;
-	constexpr uint8_t kUniformReadOnlyBit  = 0x40;
-	constexpr uint8_t kUniformCompareBit   = 0x80;
-	constexpr uint8_t kUniformMask = 0
-		| kUniformFragmentBit
-		| kUniformSamplerBit
-		| kUniformReadOnlyBit
-		| kUniformCompareBit
-		;
 
 	const char* getUniformTypeName(UniformType::Enum _enum);
 	UniformType::Enum nameToUniformTypeEnum(const char* _name);

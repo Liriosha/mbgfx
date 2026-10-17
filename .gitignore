@@ -17,3 +17,6 @@
 !subprojects/packagefiles/**
 !3rdparty
 !3rdparty/**
+!subprojects/meshoptimizer.wrap
+!tools
+!tools/**
