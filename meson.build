@@ -13,7 +13,7 @@ endforeach
 
 
 bgfx_deps = [
-    dependency('bx'),
+    subproject('bx').get_variable('bx_dep'),
     dependency('bimg'),
     dependency('h264')
 ]
