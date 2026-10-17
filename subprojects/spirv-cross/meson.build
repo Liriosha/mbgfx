@@ -3,7 +3,6 @@ project('spirv-cross','cpp')
 spirvcross_lib = static_library(
     'spirv-cross',
 [
-'main.cpp',
 'spirv_cfg.cpp',
 'spirv_cpp.cpp',
 'spirv_cpp.hpp',
@@ -21,7 +20,7 @@ spirvcross_lib = static_library(
 )
 
 spirvcross_dep = declare_dependency(
-    include_directories: ['include'],
+    include_directories: ['include','.'],
     link_with: spirvcross_lib
 )
 

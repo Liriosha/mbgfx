@@ -19,9 +19,9 @@ BX_PRAGMA_DIAGNOSTIC_IGNORED_CLANG_GCC("-Wshadow")
 #include <spirv_glsl.hpp>
 
 #define ENABLE_OPT 1
-#include <ShaderLang.h>
-#include <ResourceLimits.h>
-#include <SPIRV/GlslangToSpv.h>
+#include <glslang/Public/ShaderLang.h>
+#include <glslang/Public/ResourceLimits.h>
+#include <glslang/SPIRV/GlslangToSpv.h>
 #include <spirv-tools/optimizer.hpp>
 BX_PRAGMA_DIAGNOSTIC_POP()
 

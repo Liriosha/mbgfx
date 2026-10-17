@@ -33,6 +33,11 @@ if host_machine.system() != 'windows'
 endif
 
 endif
+cc = meson.get_compiler('cpp')
+deps += cc.find_library(
+    'glslang-default-resource-limits',
+    required : false,
+)
 
 shaderc_exe = executable(
 'shaderc',
@@ -51,7 +56,8 @@ shaderc_exe = executable(
 ],
 dependencies: deps,
 include_directories: inc_dirs,
-cpp_args: args
+cpp_args: args,
+override_options: ['unity=off']
 )
 
 meson.override_find_program('shaderc',shaderc_exe)

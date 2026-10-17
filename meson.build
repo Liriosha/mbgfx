@@ -1,4 +1,4 @@
-project('bgfx',['c','cpp'], default_options : ['cpp_std=c++20','unity=on','optimization=2'])
+project('bgfx',['c','cpp'], default_options : ['cpp_std=c++20','unity=on','optimization=2','warning_level=0'])
 
 if host_machine.system() == 'Linux'
   add_project_arguments('-fPIC', language: 'cpp')

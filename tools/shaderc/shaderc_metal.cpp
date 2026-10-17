@@ -22,22 +22,12 @@ BX_PRAGMA_DIAGNOSTIC_IGNORED_CLANG_GCC("-Wshadow") // warning: declaration of 'u
 #include <spirv_reflect.hpp>
 
 #define ENABLE_OPT 1
-#include <ShaderLang.h>
-#include <ResourceLimits.h>
-#include <SPIRV/GlslangToSpv.h>
-#include <SPIRV/SpvTools.h>
+#include <glslang/Public/ShaderLang.h>
+#include <glslang/Public/ResourceLimits.h>
+#include <glslang/SPIRV/GlslangToSpv.h>
+#include <glslang/SPIRV/SpvTools.h>
 #include <spirv-tools/optimizer.hpp>
 BX_PRAGMA_DIAGNOSTIC_POP()
-
-namespace bgfx
-{
-	struct TinyStlAllocator
-	{
-		static void* static_allocate(size_t _bytes);
-		static void static_deallocate(void* _ptr, size_t /*_bytes*/);
-	};
-
-} // namespace bgfx
 
 #define TINYSTL_ALLOCATOR bgfx::TinyStlAllocator
 #include <tinystl/allocator.h>

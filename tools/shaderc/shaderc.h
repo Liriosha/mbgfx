@@ -52,8 +52,8 @@ namespace bgfx
 #endif
 
 #ifndef SHADERC_CONFIG_HAS_GLSLANG
-#	if __has_include(<ShaderLang.h>) \
-	&& __has_include(<SPIRV/SpvTools.h>)
+#	if __has_include(<glslang/Public/ShaderLang.h>) \
+	&& __has_include(<glslang/SPIRV/SpvTools.h>)
 #		define SHADERC_CONFIG_HAS_GLSLANG 1
 #	else
 #		define SHADERC_CONFIG_HAS_GLSLANG 0
