@@ -31,17 +31,8 @@ BX_PRAGMA_DIAGNOSTIC_IGNORED_CLANG_GCC("-Wshadow") // warning: declaration of 'u
 #include <tint/api/tint.h>
 BX_PRAGMA_DIAGNOSTIC_POP()
 
-namespace bgfx
-{
-	struct TinyStlAllocator_
-	{
-		static void* static_allocate(size_t _bytes);
-		static void static_deallocate(void* _ptr, size_t /*_bytes*/);
-	};
-
-} // namespace bgfx
 #undef TINYSTL_ALLOCATOR
-#define TINYSTL_ALLOCATOR bgfx::TinyStlAllocator_
+#define TINYSTL_ALLOCATOR bgfx::TinyStlAllocator
 #include <tinystl/allocator.h>
 #include <tinystl/string.h>
 #include <tinystl/unordered_map.h>
