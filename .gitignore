@@ -39,3 +39,4 @@
 !subprojects/mbimg.wrap
 !subprojects/directx-headers.wrap
 !subprojects/meshoptimizer.wrap
+!subprojects/cgltf.wrap
