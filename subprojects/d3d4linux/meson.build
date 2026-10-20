@@ -1,4 +1,4 @@
-project('d3d4linux','cpp')
+project('d3d4linux', 'cpp')
 
 d3d4linux_lib = static_library(
     'd3d4linux',

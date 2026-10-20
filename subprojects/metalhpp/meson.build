@@ -1,4 +1,4 @@
-project('metalhpp','cpp')
+project('metalhpp', 'cpp')
 
 metalhpp_dep = declare_dependency(
     include_directories: ['.'],

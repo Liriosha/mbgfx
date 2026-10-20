@@ -1,4 +1,4 @@
-project('spirv-headers','cpp')
+project('spirv-headers', 'cpp')
 
 spirvheaders_dep = declare_dependency(
     include_directories: ['include'],

@@ -1,4 +1,4 @@
-project('khronos','cpp')
+project('khronos', 'cpp')
 
 khronos_dep = declare_dependency(
     include_directories: ['.'],

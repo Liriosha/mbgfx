@@ -1,4 +1,4 @@
-project('renderdoc','cpp')
+project('renderdoc', 'cpp')
 
 renderdoc_dep = declare_dependency(
     include_directories: ['.'],
