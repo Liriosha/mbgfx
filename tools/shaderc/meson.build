@@ -1,7 +1,5 @@
 inc_dirs = [
   '../../include',
-  '../../3rdparty',
-  '../../3rdparty/khronos',
 ]
 
 dep_names = [
@@ -12,7 +10,8 @@ dep_names = [
   'bimg',
   'meshoptimizer',
   'glslang',
-  'directx-headers'
+  'directx-headers',
+  'khronos'
 ]
 deps = []
 foreach n : dep_names

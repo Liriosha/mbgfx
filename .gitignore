@@ -33,3 +33,7 @@
 !subprojects/metalhpp/**
 !subprojects/renderdoc
 !subprojects/renderdoc/**
+!subprojects/khronos
+!subprojects/khronos/**
+!subprojects/dawn
+!subprojects/dawn/**

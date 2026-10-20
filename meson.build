@@ -18,13 +18,13 @@ bgfx_deps = [
     dependency('h264'),
     dependency('directx-headers'),
     dependency('metalhpp'),
-    dependency('renderdoc')
+    dependency('renderdoc'),
+    dependency('khronos'),
+    dependency('dawn')
 ]
 
 bgfx_inc_dirs = [
   'include',
-  '3rdparty',
-  '3rdparty/khronos'
 ]
 if host_machine.system() == 'darwin'
 bgfx_deps += [

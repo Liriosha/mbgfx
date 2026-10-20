@@ -245,13 +245,13 @@ spirvtools_lib = static_library(
 'source/name_mapper.cpp',
 'source/table.cpp',
 ],
-    include_directories: ['include','include/generated'],
+    include_directories: ['include','include/generated', '.'],
     dependencies: [dependency('spirv-headers')],
     override_options: ['unity=off']
 )
 
 spirvtools_dep = declare_dependency(
-    include_directories: ['include', 'include/generated'],
+    include_directories: ['include', 'include/generated', '.'],
     link_with: spirvtools_lib
 )
 

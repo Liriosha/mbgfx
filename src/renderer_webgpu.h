@@ -27,7 +27,7 @@
 #if !BX_PLATFORM_EMSCRIPTEN
 #	define WGPU_SKIP_DECLARATIONS
 #endif // !BX_PLATFORM_EMSCRIPTEN
-#include <dawn/include/webgpu/webgpu.h>
+#include <dawn/webgpu/webgpu.h>
 
 #if USE_WEBGPU_DYNAMIC_LIB
 #	define WGPU_IMPORT                                                              \
