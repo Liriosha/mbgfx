@@ -23,9 +23,6 @@ bgfx_deps = [
     dependency('dawn')
 ]
 
-bgfx_inc_dirs = [
-  'include',
-]
 if host_machine.system() == 'darwin'
 bgfx_deps += [
      dependency('OpenGL', method: 'extraframework'),
@@ -40,9 +37,6 @@ bgfx_deps += [
 else
   bgfx_deps += dependency('gl')
 endif
-
-bgfx_inc = include_directories(bgfx_inc_dirs)
-
 bgfx_args = []
 
 if host_machine.system() == 'linux' and get_option('with_wayland')
@@ -54,14 +48,14 @@ if host_machine.system() == 'darwin'
 endif
 
 bgfx_lib = static_library('bgfx', sources,
-  include_directories: bgfx_inc,
+  include_directories: 'include',
   dependencies: bgfx_deps,
   cpp_args : bgfx_args,
 )
 
 bgfx_dep = declare_dependency(
   link_with: bgfx_lib,
-  include_directories: bgfx_inc
+  include_directories: 'include'
 )
 
 meson.override_dependency('bgfx',bgfx_dep)
