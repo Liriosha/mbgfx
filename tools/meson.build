@@ -1,1 +1,2 @@
 subdir('shaderc')
+subdir('geometryc')
