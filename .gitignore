@@ -29,3 +29,7 @@
 !subprojects/d3d4linux/**
 !subprojects/directx-headers
 !subprojects/directx-headers/**
+!subprojects/metalhpp
+!subprojects/metalhpp/**
+!subprojects/renderdoc
+!subprojects/renderdoc/**

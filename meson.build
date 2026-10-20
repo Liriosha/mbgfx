@@ -16,7 +16,9 @@ bgfx_deps = [
     dependency('bimg'),
     dependency('bx'),
     dependency('h264'),
-    dependency('directx-headers')
+    dependency('directx-headers'),
+    dependency('metalhpp'),
+    dependency('renderdoc')
 ]
 
 bgfx_inc_dirs = [
